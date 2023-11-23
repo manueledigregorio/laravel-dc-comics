@@ -29,6 +29,7 @@ class ComicsTableSeeder extends Seeder
             $new_comic->type= $comic['type'];
             $new_comic->slug = Comic::generateSlug($new_comic->title);
 
+            $new_comic->save();
        }
     }
 }
