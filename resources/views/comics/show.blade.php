@@ -7,11 +7,12 @@
         <div class="card " style="width: 42rem;">
             <div class="card-body">
               <h5 class="card-title">{{$comics->title}}</h5>
-              <h6 class="card-subtitle mb-2 text-body-secondary"></h6>
-              <p class="card-text">{{$comics->description}}.</p>
+              <p class="card-text">{{$comics->description}}</p>
               <p  class="card-link">{{$comics->series}}</p>
               <p  class="card-link">{{$comics->sale_date}}</p>
+
             </div>
+            <a href="{{route('comics.edit', $comics->id)}}" class="btn btn-warning">Modifiche</a>
           </div>
 
 
