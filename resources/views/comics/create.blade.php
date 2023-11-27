@@ -4,14 +4,24 @@
 
 <h1>Inserimento nuova comics</h1>
 
+@if($errors->any())
+    <div class="alert alert-danger" role="alert" >
+        <ul>
+            @foreach($errors->all() as $error)
+                <li>{{$error}}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
 <div class="row d-flex justify-content-center">
     <div class="col-8">
         <form action="{{ route('comics.store') }}" method="POST">
             {{-- elemnto da inserire i  tutti i form di Laravel per un conctrollo di sicurezza  --}}
             @csrf
             <div class="mb-3">
-                <label for="title" class="form-label">Nome</label>
-                <input type="text" class="form-control" id="title" name="title" >
+                <label for="title" class="form-label">Nome *</label>
+                <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" value="{{ old('title')}}" >
             </div>
             <div class="mb-3">
                 <label for="thumb" class="form-label">immagine</label>

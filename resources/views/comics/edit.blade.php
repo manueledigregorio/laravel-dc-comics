@@ -4,6 +4,16 @@
 
 <h1>Modifica comics: {{$comics->title}}</h1>
 
+@if($errors->any())
+    <div class="alert alert-danger" role="alert" >
+        <ul>
+            @foreach($errors->all() as $error)
+                <li>{{$error}}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
 <div class="row d-flex justify-content-center">
     <div class="col-8">
         <form action="{{ route('comics.update',$comics) }}" method="POST">
